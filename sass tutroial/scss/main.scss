@@ -1,0 +1,28 @@
+// Variables
+$theme : rgb(0, 179, 185);
+$background: rgb(200, 200, 200);
+$font-color: rgb(69, 69, 69);
+$font-weights: (
+    "light" : 400,
+    "medium" : 500,
+    "bold" : 700,
+);
+$font-sizes: (
+    "sm" : 1rem,
+    "md" : 1.6rem,
+    "lg" : 2rem,
+);
+
+body {
+    background-color: $background;
+}
+
+.main{
+    color: $font-color;
+    font-weight: map-get($font-weights, light);
+    span{
+        color: $theme;
+        font-weight: map-get($font-weights, bold);
+        font-size: map-get($font-sizes, lg);
+    }
+}
