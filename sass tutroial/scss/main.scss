@@ -9,6 +9,13 @@
     flex-direction: $direction;
 }
 
+@mixin theme($light-theme: true) {
+    @if $light-theme {
+        background: lighten($primary-color, 100%);
+        color: darken($text-color, 100%);
+    }
+}
+
 body {
     background-color: $background;
 
@@ -19,40 +26,45 @@ body {
     }
 }
 
-    .main{
-        width: 80%;
-        margin: 0 auto;
+.main{
+    width: 80%;
+    margin: 0 auto;
 
-        .flex__container {
-            @include flexCenter(row);
-        }
-
-        h2 {
-            color: $theme;
-            font-weight: weight(bold);
-            font-size: map-get($font-sizes, lg);
-            padding: 20px;
-        }
-
-        #{&}__paragraph{
-            color: $font-color;
-            font-weight: weight(light);
-            font-size: map-get($font-sizes, sm);
-            &:hover {
-                color:pink;
-            }
-        }
-        span {
-            font-weight: weight(medium);
-            font-size: map-get($font-sizes, md);
-        }
+    .flex__container {
+        @include flexCenter(row);
     }
 
-    .sidebar {
-        width: 20%;
-        margin-top: 50px;
-        text-align: center;
-        .flex__container{
-            @include flexCenter(column);
+    h2 {
+        color: $theme;
+        font-weight: weight(bold);
+        font-size: map-get($font-sizes, lg);
+        padding: 20px;
+    }
+
+    #{&}__paragraph{
+        color: $font-color;
+        font-weight: weight(light);
+        font-size: map-get($font-sizes, sm);
+        &:hover {
+            color:pink;
         }
     }
+    span {
+        font-weight: weight(medium);
+        font-size: map-get($font-sizes, md);
+    }
+}
+
+
+.light{
+    @include theme($light-theme: false);
+}
+
+.sidebar {
+    width: 20%;
+    margin-top: 50px;
+    text-align: center;
+    .flex__container{
+        @include flexCenter(column);
+    }
+}
