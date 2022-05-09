@@ -16,6 +16,12 @@
     }
 }
 
+@mixin mobile {
+    @media (max-width: $mobile){
+        @content;
+    }
+}
+
 body {
     background-color: $background;
 
@@ -32,7 +38,12 @@ body {
 
     .flex__container {
         @include flexCenter(row);
+            
+        @include mobile{
+            flex-direction: column;
+        }
     }
+
 
     h2 {
         color: $theme;
@@ -41,7 +52,7 @@ body {
         padding: 20px;
     }
 
-    #{&}__paragraph{
+    #{&}__paragraph1{
         color: $font-color;
         font-weight: weight(light);
         font-size: map-get($font-sizes, sm);
@@ -49,6 +60,20 @@ body {
             color:pink;
         }
     }
+
+    #{&}__paragraph2{
+        @extend .main__paragraph1;
+        color: gray;
+    }
+
+    #{&}__paragraph3{
+        @extend .main__paragraph1;
+        color: black;
+        &:hover {
+            color: $accent-color;
+        }
+    }
+    
     span {
         font-weight: weight(medium);
         font-size: map-get($font-sizes, md);
@@ -57,7 +82,7 @@ body {
 
 
 .light{
-    @include theme($light-theme: false);
+    @include theme(true);
 }
 
 .sidebar {
