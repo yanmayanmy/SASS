@@ -1,11 +1,11 @@
 .contact {
+    @include portrait;
     height: 100%;
     padding-top: 40vh;
     overflow: hidden;
     display: flex;
     flex-direction: column;
     align-items: center;
-    @include portrait;
 
     h2 {
         font-size: 3rem;

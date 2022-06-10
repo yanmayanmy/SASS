@@ -19,3 +19,30 @@ $secondary-color: #ff652f;
         @return #fff;
     }
 }
+
+@mixin portrait {
+    background: 
+    linear-gradient(
+        to right,
+        rgba($primary-color, 0.9),
+        rgba($primary-color, 0.3)
+    ),
+    url('../img/portrait.JPG') center top;
+    background-size: cover;
+}
+
+@mixin media-md {
+    @media screen and (min-width: 768px){
+        @content;
+    }
+}
+@mixin media-lg {
+    @media screen and (min-width: 1024px){
+        @content;
+    }
+}
+@mixin media-xl {
+    @media screen and (min-width: 1600px){
+        @content;
+    }
+}
